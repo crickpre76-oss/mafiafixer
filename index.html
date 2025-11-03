@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝐌𝐀𝐅𝐈𝐘𝐀 𝐅𝐈𝐗𝐄𝐑</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://static.vecteezy.com/system/resources/previews/051/167/728/non_2x/the-football-stadium-is-empty-during-the-day-clean-grass-no-markings-copy-space-horizontal-format-photo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .logo-container {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ff6b00;
+            box-shadow: 0 0 25px rgba(255, 107, 0, 0.7);
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            color: #ff6b00;
+            letter-spacing: 1px;
+        }
+        
+        .subscriber-count {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            line-height: 1.4;
+        }
+        
+        .paid-promo {
+            /* background: rgba(255, 107, 0, 0.2); */
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin: 15px 0;
+            /* border: 1px solid #ff6b00; */
+            font-size: 1.1rem;
+        }
+        
+        .timer-container {
+            /* background: rgba(0, 0, 0, 0.7); */
+            padding: 20px 40px;
+            border-radius: 10px;
+            margin: 25px 0;
+            /* border: 2px solid #ff6b00; */
+            /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); */
+        }
+        
+        .timer {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffcc00;
+            font-family: 'Digital', Arial, sans-serif;
+        }
+        
+        .timer-label {
+            font-size: 1.1rem;
+            margin-top: 5px;
+            color: #ddd;
+            letter-spacing: 1px;
+        }
+        
+        .btn-container {
+            margin: 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s forwards;
+            animation-delay: 0.3s;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::after {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b00, #ff9500);
+            color: white;
+            box-shadow: 0 5px 20px rgba(255, 107, 0, 0.5);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #ffcc00;
+            border: 2px solid #ffcc00;
+            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.7);
+        }
+        
+        .links {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .link {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+            position: relative;
+            padding-bottom: 3px;
+        }
+        
+        .link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #ff6b00;
+            transition: width 0.3s;
+        }
+        
+        .link:hover {
+            color: #ff6b00;
+        }
+        
+        .link:hover::after {
+            width: 100%;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .tagline {
+                font-size: 1.4rem;
+            }
+            
+            .timer {
+                font-size: 2.5rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+                min-width: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .timer-container {
+                padding: 15px 25px;
+            }
+            
+            .timer {
+                font-size: 2rem;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .paid-promo {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="logo.jpg" alt="Mafiya Fixer Logo" class="logo">
+    </div>
+    
+    <h1>𝐌𝐀𝐅𝐈𝐘𝐀 𝐅𝐈𝐗𝐄𝐑</h1>
+    <p class="subscriber-count">69,876 subscribers</p>
+    <p class="tagline">🚩॥ जय श्री राम ॥ 🚩</p>
+    
+    <div class="paid-promo">Paid Promotion :- @MAFIYATIPS</div>
+    
+    <div class="links" style="            background: rgba(255, 107, 0, 0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin: 15px 0;
+            border: 1px solid #ff6b00;
+            font-size: 1.1rem;">
+        <a href="https://t.me/+h-FdsUgygA8zMTQ1" class="link">Join [𝐌𝐀𝐅𝐈𝐘𝐀 𝐅𝐈𝐗𝐄𝐑] Channel</a>
+    </div>
+    
+    <div class="timer-container">
+        <div class="timer" id="countdown">60</div>
+        <div class="timer-label">SECONDS REMAINING</div>
+    </div>
+
+    <script>
+        // Countdown timer
+        let timeLeft = 60;
+        const countdown = document.getElementById('countdown');
+        
+        const timer = setInterval(() => {
+            timeLeft--;
+            countdown.textContent = timeLeft;
+            
+            // Change color when time is running out
+            if (timeLeft <= 10) {
+                countdown.style.color = "#ff0000";
+                countdown.style.textShadow = "0 0 10px rgba(255, 0, 0, 0.7)";
+            }
+            
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                countdown.textContent = "TIME'S UP!";
+                document.querySelector('.timer-label').textContent = "OFFER EXPIRED";
+            }
+        }, 1000);
+        
+        // Button animation with staggered delay
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach((btn, index) => {
+            btn.style.animationDelay = `${0.2 + (index * 0.3)}s`;
+            
+            // Add click animation
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+        
+        // Add glow effect to logo periodically
+        const logo = document.querySelector('.logo');
+        setInterval(() => {
+            logo.style.boxShadow = '0 0 30px rgba(255, 107, 0, 0.9)';
+            setTimeout(() => {
+                logo.style.boxShadow = '0 0 25px rgba(255, 107, 0, 0.7)';
+            }, 1000);
+        }, 5000);
+    </script>
+</body>
+</html>
